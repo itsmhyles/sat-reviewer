@@ -154,6 +154,29 @@ class ChillSession(BaseSession):
             previous_question = self.questions[self.current_question_index - 1]
             return previous_question.explanation
 
+    def _format_explanation(self, explanation):
+        """
+        Formats the explanation in a more aesthetic manner.
+
+        Expected:
+        Correct Answer Explanation:
+        [explanation for the correct answer]
+
+        Why other answers are incorrect:
+
+        Choice B: [explanation for why B is incorrect]
+
+        """
+        formatted_text = "\nCorrect Answer Explanation:\n"
+        formatted_text += explanation['correct'] + "\n"
+        
+        if 'incorrect' in explanation:
+            formatted_text += "\nWhy other answers are incorrect:\n"
+            for choice, reason in explanation['incorrect'].items():
+                formatted_text += f"\nChoice {choice}: {reason}"
+        
+        return formatted_text
+
 
 class SessionFactory:
     """
@@ -173,9 +196,18 @@ class SessionFactory:
         self.question_bank.load_questions('reading_1.json', 'reading')
         self.manager = QuestionManager(self.question_bank)
     
-    def create_session(self, section_type, mode, question_count=None):
+   
+    def create_session(self, section_type, mode, question_count=None, order_preference=None):
         """
         Creates a new session based on the specified parameters.
+
+        Args:
+            section_type (str): The type of session ('math', 'reading', or 'combined').
+            mode (str): The mode of the session ('simulation' or 'chill').
+            question_count (int, optional): The number of questions for the session.
+
+        Returns:
+            BaseSession: An instance of either SimulationSession or ChillSession.
         """
         # Validate inputs
         if section_type not in ['math', 'reading', 'combined']:
@@ -183,76 +215,32 @@ class SessionFactory:
         if mode not in ['simulation', 'chill']:
             raise ValueError("Invalid mode. Must be 'simulation' or 'chill'")
         
-        # Set default question count based on mode
-        if question_count is None:
-            question_count = 25 if mode == 'simulation' else 10
-
+        # Set default question count based on mode and section
+        if mode == 'simulation':
+            question_count = 50 if section_type == 'combined' else 25
+        else:
+            question_count = 20
+        
         # Get appropriate questions
         if section_type == 'combined':
             math_qs = self.manager.get_questions_by_section('math')
             reading_qs = self.manager.get_questions_by_section('reading')
-            questions = self.manager.shuffle_questions(math_qs + reading_qs, count=question_count)
+            
+            # Handle combined questions based on order preference
+            if order_preference == 'math_first':
+                questions = (self.manager.shuffle_questions(math_qs, count=question_count//2) + 
+                            self.manager.shuffle_questions(reading_qs, count=question_count//2))
+            else:
+                questions = (self.manager.shuffle_questions(reading_qs, count=question_count//2) + 
+                            self.manager.shuffle_questions(math_qs, count=question_count//2))
         else:
             questions = self.manager.get_questions_by_section(section_type)
             questions = self.manager.shuffle_questions(questions, count=question_count)
         
-        # Validate questions
-        if not questions:
-            raise ValueError(f"No questions available for {section_type} section")
-        if len(questions) < question_count:
-            raise ValueError(f"Not enough questions available. Requested {question_count}, but only {len(questions)} available")
-
         # Create and return appropriate session type
         if mode == 'simulation':
             return SimulationSession(questions, section_type)
         return ChillSession(questions, section_type)
-    
-
-def create_session(self, section_type, mode, question_count=None):
-    """
-    Creates a new session based on the specified parameters.
-
-    Args:
-        section_type (str): The type of session ('math', 'reading', or 'combined').
-        mode (str): The mode of the session ('simulation' or 'chill').
-        question_count (int, optional): The number of questions for the session.
-
-    Returns:
-        BaseSession: An instance of either SimulationSession or ChillSession.
-    """
-
-    # Validate inputs
-    if section_type not in ['math', 'reading', 'combined']:
-        raise ValueError("Invalid section type. Must be 'math', 'reading', or 'combined'")
-    if mode not in ['simulation', 'chill']:
-        raise ValueError("Invalid mode. Must be 'simulation' or 'chill'")
-    
-    # Set default question count based on mode
-    if question_count is None:
-        question_count = 25 if mode == 'simulation' else 10
-
-    # Get appropriate questions
-    if section_type == 'combined':
-        math_qs = self.manager.get_questions_by_section('math')
-        reading_qs = self.manager.get_questions_by_section('reading')
-        questions = self.manager.shuffle_questions(math_qs + reading_qs, count=question_count)
-    else:
-        questions = self.manager.get_questions_by_section(section_type)
-        questions = self.manager.shuffle_questions(questions, count=question_count)
-    
-    # Validate questions
-    if not questions:
-        raise ValueError(f"No questions available for {section_type} section")
-    if len(questions) < question_count:
-        raise ValueError(f"Not enough questions available. Requested {question_count}, but only {len(questions)} available")
-
-    # Create and return appropriate session type
-    if mode == 'simulation':
-        return SimulationSession(questions, section_type)
-    return ChillSession(questions, section_type)
-
-
-
 
 class TimerDisplay:
     """
