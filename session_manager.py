@@ -129,7 +129,9 @@ class SimulationSession(BaseSession):
         """
         return self.get_remaining_time() <= 0
 
+
 class ChillSession(BaseSession):
+    
     """
     A session class for relaxed, untimed practice.
 
@@ -142,6 +144,44 @@ class ChillSession(BaseSession):
     def __init__(self, questions, session_type):
         super().__init__(questions, session_type)
         self.review_mode = True
+        self.answered_questions = set()  # Track which questions have been answered
+    
+    def go_back(self):
+        """Go back to the previous question if possible"""
+        if self.current_question_index > 0:
+            self.current_question_index -= 1
+            return True
+        return False
+    
+    def go_forward(self):
+        """Go forward to the next question if possible"""
+        if self.current_question_index < self.total_questions - 1:
+            self.current_question_index += 1
+            return True
+        return False
+    
+    def update_answer(self, answer):
+        """Update an existing answer and recalculate score"""
+        question = self.questions[self.current_question_index]
+        old_answer = self.answers.get(question.id)
+        
+        # Remove point for previous correct answer
+        if old_answer and old_answer['correct']:
+            self.score -= 1
+        
+        # Check new answer
+        is_correct = answer.upper() == question.correct_answer
+        if is_correct:
+            self.score += 1
+        
+        # Update answer in dictionary
+        self.answers[question.id] = {
+            'user_answer': answer,
+            'correct': is_correct,
+            'question_text': question.question_text
+        }
+        
+        return is_correct
     
     def show_explanation(self):
         """
@@ -270,8 +310,8 @@ class TimerDisplay:
         print("\r" + " " * 30 + "\r", end="", flush=True)
 
 
+
 def run_simulation_session(questions, session_type):
-    
     """
     Runs a complete simulation session.
 
@@ -282,7 +322,6 @@ def run_simulation_session(questions, session_type):
         questions (list): List of Question objects for the session.
         session_type (str): Type of the session ('math', 'reading', or 'combined').
     """
-
     session = SimulationSession(questions, session_type)
     timer = TimerDisplay(session)
     
@@ -296,20 +335,49 @@ def run_simulation_session(questions, session_type):
         if not current_question:
             print("\nAll questions completed!")
             break
-            
+        
         print(f"\nQuestion {session.current_question_index + 1} of {session.total_questions}")
         current_question.display()
-        answer = input("\nYour answer (A/B/C/D): ").upper()
         
+        answer = input("\nYour answer (A/B/C/D): ").upper()
         while answer not in ['A', 'B', 'C', 'D']:
             print("Invalid input. Please enter A, B, C, or D.")
             answer = input("Your answer (A/B/C/D): ").upper()
-            
+        
         timer.clear_timer()
         
         if session.is_time_up():
             print("\nTime's up!")
             break
-            
+        
         session.submit_answer(answer)
-
+    
+    # Display final score and review section
+    print("\n" + "="*50)
+    print(f"Session completed!\nFinal Score: {session.score}/{session.total_questions}")
+    print(f"Percentage: {(session.score/session.total_questions)*100:.2f}%")
+    print("="*50)
+    
+    # Review section
+    print("\nWould you like to review your answers? (Y/N)")
+    if input().upper() == 'Y':
+        print("\n=== Review Session ===")
+        for i, question in enumerate(questions):
+            if question.id in session.answers:
+                answer = session.answers[question.id]
+                print(f"\nQuestion {i+1}:")
+                print(question.question_text)
+                print("\nYour answer:", answer['user_answer'])
+                print("Correct answer:", question.correct_answer)
+                print("✓ Correct!" if answer['correct'] else "✗ Incorrect!")
+                
+                if not answer['correct']:
+                    print("\nExplanation:")
+                    print("-"*50)
+                    print("Correct Answer Explanation:")
+                    print(question.explanation['correct'])
+                    print("\nWhy your answer was incorrect:")
+                    if answer['user_answer'] in question.explanation['incorrect']:
+                        print(question.explanation['incorrect'][answer['user_answer']])
+                
+                input("\nPress Enter for next question...")
