@@ -87,6 +87,3 @@
 
 This structure provides a solid foundation for building your SAT reviewer. Once you're satisfied with these requirements, we can proceed with the implementation phase.
 
-Citations:
-[1] https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/30972776/1d85a7fd-e54d-466a-92eb-c08ced32a14c/math_1.json
-[2] https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/30972776/ab47c566-a000-4f2c-ae2c-d2ae2e6ebcf8/reading_1.json
