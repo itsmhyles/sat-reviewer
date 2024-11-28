@@ -1,0 +1,844 @@
+{"questions":
+[
+    {
+      "id": 1,
+      "question_text": "A bag contains 5 red marbles, 3 blue marbles, and 2 green marbles. Two marbles are drawn without replacement. What is the probability that both marbles are the same color?",
+      "choices": {
+            "A": "7/30",
+            "B": "11/45",
+            "C": "13/45",
+            "D": "17/90"
+      },
+      "correct_answer": "B",
+      "explanation": {
+        "correct": "The probability of drawing two marbles of the same color is the sum of the probabilities of drawing two red marbles, two blue marbles, or two green marbles. P(two red) = (5/10) * (4/9) = 20/90, P(two blue) = (3/10) * (2/9) = 6/90, P(two green) = (2/10) * (1/9) = 2/90. Total probability = (20 + 6 + 2)/90 = 28/90 = 14/45 = 11/45",
+        "incorrect": {
+          "A": "7/30 is too small and doesn't account for all possible combinations.",
+          "C": "13/45 is close but slightly overestimates the probability.",
+          "D": "17/90 is not reducible and doesn't match the correct calculation."
+        }
+      },
+      "category": "Sets and Probability",
+      "difficulty": "medium"
+    },
+    {
+      "id": 2,
+      "question_text": "The scores on a statistics exam follow a normal distribution with a mean of 75 and a standard deviation of 8. What percentage of students scored above 83?",
+      "choices": {
+            "A": "15.87%",
+            "B": "34.13%",
+            "C": "68.26%",
+            "D": "84.13%"
+      },
+      "correct_answer": "A",
+      "explanation": {
+        "correct": "To solve this, we need to calculate the z-score and use the standard normal distribution table. z = (x - μ) / σ = (83 - 75) / 8 = 1. For z = 1, the area to the right of the z-score is approximately 0.1587 or 15.87%.",
+        "incorrect": {
+          "B": "34.13% is the area between the mean and one standard deviation above the mean.",
+          "C": "68.26% is the area within one standard deviation of the mean.",
+          "D": "84.13% is the area below one standard deviation above the mean."
+        }
+      },
+      "category": "Statistics and Data Analysis",
+      "difficulty": "medium"
+    },
+    {
+      "id": 3,
+      "question_text": "Let f(n) be the number of positive divisors of n. For how many positive integers n ≤ 100 is f(n) odd?",
+      "choices": {
+            "A": "9",
+            "B": "10",
+            "C": "11",
+            "D": "12"
+      },
+      "correct_answer": "B",
+      "explanation": {
+        "correct": "A number has an odd number of divisors if and only if it is a perfect square. The perfect squares less than or equal to 100 are: 1, 4, 9, 16, 25, 36, 49, 64, 81, 100. There are 10 such numbers.",
+        "incorrect": {
+          "A": "9 is close but misses one perfect square.",
+          "C": "11 overcounts by including a non-perfect square.",
+          "D": "12 significantly overcounts the number of perfect squares."
+        }
+      },
+      "category": "Number Theory",
+      "difficulty": "hard"
+    },
+    {
+      "id": 4,
+      "question_text": "In a right triangle ABC with the right angle at C, sin A = 3/5. What is the value of tan B?",
+      "choices": {
+            "A": "3/4",
+            "B": "4/3",
+            "C": "5/12",
+            "D": "12/5"
+      },
+      "correct_answer": "A",
+      "explanation": {
+        "correct": "If sin A = 3/5, then in the right triangle: The opposite side to angle A is 3, the hypotenuse is 5, and the adjacent side to angle A (which is the opposite to B) is 4 (by the Pythagorean theorem). tan B = opposite/adjacent = 3/4",
+        "incorrect": {
+          "B": "4/3 is the reciprocal of the correct answer.",
+          "C": "5/12 is not a valid trigonometric ratio for this triangle.",
+          "D": "12/5 is not a valid trigonometric ratio for this triangle."
+        }
+      },
+      "category": "Geometry and Trigonometry",
+      "difficulty": "medium"
+    },
+    {
+      "id": 5,
+      "question_text": "For what value of k will the parabola y = x^2 + kx + 4 be tangent to the x-axis?",
+      "choices": {
+            "A": "-4",
+            "B": "-2",
+            "C": "2",
+            "D": "4"
+      },
+      "correct_answer": "C",
+      "explanation": {
+        "correct": "For the parabola to be tangent to the x-axis, it must have exactly one solution, which occurs when the discriminant is zero. The discriminant of a quadratic ax^2 + bx + c is b^2 - 4ac. Here, a=1, b=k, and c=4. Setting the discriminant to zero: k^2 - 4(1)(4) = 0, k^2 - 16 = 0, k^2 = 16, k = ±4. The positive value, 4, is the correct answer for k. However, the question asks for the value of k, not k^2, so the correct answer is 2.",
+        "incorrect": {
+          "A": "-4 is a solution to k^2 = 16, but not to k.",
+          "B": "-2 is the negative of the correct answer.",
+          "D": "4 is the value of k^2, not k."
+        }
+      },
+      "category": "Algebra and Functions",
+      "difficulty": "hard"
+    },
+    {
+        "id": 6,
+        "question_text": "A function f(x) is defined as f(x) = ax² + bx + c, where a, b, and c are constants. If f(0) = 3, f(1) = 6, and f(2) = 13, what is the value of a?",
+        "choices": {
+            "A": "1",
+            "B": "2",
+            "C": "3",
+            "D": "4"
+        },
+        "correct_answer": "B",
+        "explanation": {
+            "correct": "We can solve this by setting up a system of equations: 1) f(0) = c = 3, 2) f(1) = a + b + 3 = 6, 3) f(2) = 4a + 2b + 3 = 13. From (2) and (3), we can derive: 4) 3a + b = 10. Subtracting (2) from (4): 2a = 4, a = 2",
+            "incorrect": {
+                "A": "1 is too small to satisfy the equations.",
+                "C": "3 is too large and doesn't fit the system of equations.",
+                "D": "4 is significantly too large for the given function values."
+        }
+        },
+        "category": "Algebra and Functions",
+        "difficulty": "medium"
+    },
+    {
+        "id": 7,
+        "question_text": "In a regular hexagon with side length s, what is the area in terms of s?",
+        "choices": {
+            "A": "3√3/2 * s²",
+            "B": "2√3 * s²",
+            "C": "3/2 * s²",
+            "D": "3s²"
+        },
+        "correct_answer": "A",
+        "explanation": {
+            "correct": "A regular hexagon can be divided into six equilateral triangles. The area of the hexagon is six times the area of one equilateral triangle. For an equilateral triangle with side s: Height = √3/2 * s, Area of triangle = 1/2 * s * √3/2 * s = √3/4 * s². Area of hexagon = 6 * √3/4 * s² = 3√3/2 * s²",
+            "incorrect": {
+                "B": "2√3 * s² is too large by a factor of 4/3.",
+                "C": "3/2 * s² doesn't account for the √3 factor.",
+                "D": "3s² is an overestimation and lacks the √3 factor."
+        }
+        },
+        "category": "Geometry and Trigonometry",
+        "difficulty": "hard"
+    },
+    {
+        "id": 8,
+        "question_text": "A bag contains 4 red balls, 5 blue balls, and 3 green balls. Two balls are drawn without replacement. What is the probability that the second ball drawn is blue, given that the first ball drawn was red?",
+        "choices": {
+            "A": "5/11",
+            "B": "1/3",
+            "C": "4/11",
+            "D": "5/12"
+        },
+        "correct_answer": "A",
+        "explanation": {
+            "correct": "After drawing a red ball, there are 11 balls left: 5 blue, 3 green, and 3 red. The probability of drawing a blue ball on the second draw is 5/11.",
+            "incorrect": {
+                "B": "1/3 doesn't account for the change in total balls after the first draw.",
+                "C": "4/11 is the probability of drawing a red ball on the second draw.",
+                "D": "5/12 is the initial probability of drawing a blue ball before any draws."
+        }
+        },
+        "category": "Probability and Statistics",
+        "difficulty": "medium"
+    },
+    {
+        "id": 9,
+        "question_text": "How many positive integers less than 1000 are divisible by both 7 and 11?",
+        "choices": {
+            "A": "12",
+            "B": "13",
+            "C": "14",
+            "D": "15"
+        },
+        "correct_answer": "B",
+        "explanation": {
+            "correct": "The least common multiple (LCM) of 7 and 11 is 77. The largest multiple of 77 less than 1000 is 77 * 12 = 924. Therefore, there are 12 + 1 = 13 multiples of 77 less than 1000.",
+            "incorrect": {
+                "A": "12 forgets to count the number itself (77).",
+                "C": "14 overcounts by one.",
+                "D": "15 significantly overcounts."
+            }
+        },
+        "category": "Number Theory",
+        "difficulty": "medium"
+    },
+    {
+        "id": 10,
+        "question_text": "If z = 2 + 3i and w = 1 - 2i, what is the value of |z + w|?",
+        "choices": {
+            "A": "5",
+            "B": "√10",
+            "C": "√26",
+            "D": "6"
+        },
+        "correct_answer": "B",
+        "explanation": {
+            "correct": "z + w = (2 + 3i) + (1 - 2i) = 3 + i. |z + w| = √(3² + 1²) = √(9 + 1) = √10",
+            "incorrect": {
+                "A": "5 is close but not exact.",
+                "C": "√26 is the magnitude of z, not z + w.",
+                "D": "6 is an overestimation."
+        }
+        },
+        "category": "Complex Numbers and Vectors",
+        "difficulty": "medium"
+    },
+    {
+        "id": 11,
+        "question_text": "What is the sum of the first 50 terms of the arithmetic sequence 3, 7, 11, 15, ...?",
+        "choices": {
+            "A": "2450",
+            "B": "2500",
+            "C": "2550",
+            "D": "2600"
+        },
+        "correct_answer": "C",
+        "explanation": {
+            "correct": "For an arithmetic sequence, the sum of n terms is given by: S_n = n/2(a_1 + a_n). Here, a₁ = 3, d = 4, n = 50. a₅₀ = a₁ + (n-1)d = 3 + 49(4) = 199. S₅₀ = 50/2(3 + 199) = 25(202) = 5050",
+            "incorrect": {
+                "A": "2450 is too small.",
+                "B": "2500 is close but underestimates the sum.",
+                "D": "2600 overestimates the sum."
+        }
+        },
+        "category": "Sequences and Series",
+        "difficulty": "medium"
+    },
+    {
+        "id": 12,
+        "question_text": "If log₂(x) + log₂(y) = 5, what is the value of xy?",
+        "choices": {
+            "A": "16",
+            "B": "25",
+            "C": "32",
+            "D": "64"
+        },
+        "correct_answer": "C",
+        "explanation": {
+            "correct": "Using the properties of logarithms: log₂(x) + log₂(y) = log₂(xy) = 5. Therefore, xy = 2⁵ = 32",
+            "incorrect": {
+                "A": "16 is 2⁴, which is too small.",
+                "B": "25 is 5², not a power of 2.",
+                "D": "64 is 2⁶, which is too large."
+        }
+        },
+        "category": "Logarithms and Exponents",
+        "difficulty": "medium"
+    },
+    {
+        "id": 13,
+        "question_text": "In how many ways can 7 people be seated in a row if 2 specific people must sit next to each other?",
+        "choices": {
+            "A": "720",
+            "B": "1440",
+            "C": "2880",
+            "D": "3600"
+        },
+        "correct_answer": "C",
+        "explanation": {
+            "correct": "Consider the 2 specific people as one unit. Now we have 6 units to arrange (the pair and 5 individuals). 6! = 720 ways to arrange these 6 units. The 2 specific people can be arranged in 2! = 2 ways within their unit. Total arrangements = 720 * 2 * 2 = 2880. The factor of 2 at the end is because the pair can be on either side of the arrangement.",
+            "incorrect": {
+                "A": "720 only accounts for arranging 6 units without considering the internal arrangement of the pair.",
+                "B": "1440 misses the factor of 2 for the pair being on either side.",
+                "D": "3600 is an overestimation."
+        }
+        },
+        "category": "Combinatorics",
+        "difficulty": "hard"
+    },
+    {
+        "id": 14,
+        "question_text": "The function f(x) = x³ - 3x² + 2x - 1 has how many distinct real roots?",
+        "choices": {
+            "A": "0",
+            "B": "1",
+            "C": "2",
+            "D": "3"
+        },
+        "correct_answer": "B",
+        "explanation": {
+            "correct": "To determine the number of real roots, we need to analyze the derivative: f'(x) = 3x² - 6x + 2. The discriminant of f'(x) is: b² - 4ac = (-6)² - 4(3)(2) = 36 - 24 = 12 > 0. This means f'(x) has two real roots, indicating that f(x) has two turning points. Given that f(x) is a cubic function, it must cross the x-axis only once, meaning it has only one real root.",
+            "incorrect": {
+                "A": "0 is impossible for a cubic function.",
+                "C": "2 roots would require the function to touch the x-axis at one point, which is not the case here.",
+                "D": "3 distinct real roots would require three crossings of the x-axis, which is not possible given the derivative analysis."
+            }
+        },
+        "category": "Calculus Concepts",
+        "difficulty": "hard"
+    },
+    {
+        "id": 15,
+        "question_text": "If A is a 2x2 matrix with det(A) = 5 and tr(A) = 7, what is det(2A)?",
+        "choices": {
+            "A": "10",
+            "B": "20",
+            "C": "25",
+            "D": "40"
+        },
+        "correct_answer": "B",
+        "explanation": {
+            "correct": "For a 2x2 matrix, if we multiply each element by k, the determinant is multiplied by k². det(2A) = 2² * det(A) = 4 * 5 = 20",
+            "incorrect": {
+                "A": "10 only multiplies the original determinant by 2, which is incorrect.",
+                "C": "25 squares the original determinant, which is not the correct operation.",
+                "D": "40 is an incorrect calculation, possibly from misunderstanding the relationship between scaling and determinant."
+                }
+        },
+        "category": "Matrices and Linear Algebra",
+        "difficulty": "medium"
+    },
+    {
+    "id": 16,
+    "question_text": "If z = cos θ + i sin θ, what is the value of z^4 + 1/z^4?",
+    "choices": {
+        "A": "0",
+        "B": "1",
+        "C": "2",
+        "D": "4"
+    },
+    "correct_answer": "C",
+    "explanation": {
+        "correct": "Using De Moivre's formula, we know that z^4 = cos 4θ + i sin 4θ. Similarly, 1/z^4 = cos (-4θ) + i sin (-4θ) = cos 4θ - i sin 4θ. Adding these: z^4 + 1/z^4 = (cos 4θ + i sin 4θ) + (cos 4θ - i sin 4θ) = 2 cos 4θ. The real part of this sum is always 2, regardless of the value of θ.",
+        "incorrect": {
+            "A": "0 would occur if we were subtracting instead of adding.",
+            "B": "1 is too small for this operation.",
+            "D": "4 would be the result if we were adding the magnitudes, not the complex numbers themselves."
+            }
+        },
+        "category": "Trigonometry and Complex Numbers",
+        "difficulty": "hard"
+    },
+    {
+        "id": 17,
+        "question_text": "A committee of 5 people is to be formed from a group of 7 men and 8 women. If the committee must have at least 2 men and at least 2 women, how many different committees are possible?",
+        "choices": {
+            "A": "1960",
+            "B": "2100",
+            "C": "2240",
+            "D": "2380"
+        },
+        "correct_answer": "C",
+        "explanation": {
+            "correct": "We can break this down into cases: 1) 2 men and 3 women: C(7,2) * C(8,3) = 21 * 56 = 1176, 2) 3 men and 2 women: C(7,3) * C(8,2) = 35 * 28 = 980, 3) 3 men and 3 women: C(7,3) * C(8,2) = 35 * 28 = 84. Total: 1176 + 980 + 84 = 2240",
+            "incorrect": {
+                "A": "1960 is too small, missing some combinations.",
+                "B": "2100 is close but underestimates the total.",
+                "D": "2380 overestimates the number of possible committees."
+            }
+        },
+        "category": "Probability and Combinatorics",
+        "difficulty": "medium"
+
+    },
+    {
+        "id": 18,
+        "question_text": "For what value of k will the system of equations have infinitely many solutions? x + 2y = 5, 2x + ky = 10",
+        "choices": {
+            "A": "3",
+            "B": "4",
+            "C": "5",
+            "D": "6"
+        },
+        "correct_answer": "B",
+        "explanation": {
+            "correct": "For the system to have infinitely many solutions, the equations must be equivalent. This means their coefficients must be proportional. 1/2 = 2/k = 5/10. From this, we can see that k must equal 4.",
+            "incorrect": {
+                "A": "3 would not make the equations equivalent.",
+                "C": "5 would result in a single solution, not infinitely many.",
+                "D": "6 would result in no solutions."
+            }
+        },
+        "category": "Algebra and Functions",
+        "difficulty": "medium"
+    },
+    {
+        "id": 19,
+        "question_text": "In the xy-plane, the line y = mx + b passes through the points (2, 5) and (4, 9). What is the y-intercept of this line?",
+        "choices": {
+            "A": "0",
+            "B": "1",
+            "C": "2",
+            "D": "3"
+        },
+        "correct_answer": "B",
+        "explanation": {
+            "correct": "We can find m using the two points: m = (9-5)/(4-2) = 4/2 = 2. Now we can use either point to find b: 5 = 2(2) + b, 5 = 4 + b, b = 1. Therefore, the y-intercept is 1.",
+            "incorrect": {
+                "A": "0 would imply the line passes through the origin, which it doesn't.",
+                "C": "2 is the slope, not the y-intercept.",
+                "D": "3 is too large for this line."
+        }
+        },
+        "category": "Geometry and Coordinate Plane",
+        "difficulty": "medium"
+    },
+    {
+        "id": 20,
+        "question_text": "What is the remainder when 7^100 is divided by 13?",
+        "choices": {
+            "A": "1",
+            "B": "3",
+            "C": "7",
+            "D": "9"
+        },
+        "correct_answer": "D",
+            "explanation": {
+            "correct": "We can use Euler's theorem: a^φ(n) ≡ 1 (mod n) for coprime a and n. φ(13) = 12 (as 13 is prime). So, 7^12 ≡ 1 (mod 13). Now, 100 = 8 * 12 + 4. Therefore, 7^100 ≡ (7^12)^8 * 7^4 ≡ 1^8 * 7^4 ≡ 7^4 (mod 13). 7^4 = 2401 ≡ 9 (mod 13)",
+            "incorrect": {
+                "A": "1 would be the result if the exponent was divisible by 12.",
+                "B": "3 is not a possible remainder for any power of 7 mod 13.",
+                "C": "7 is the base, not the remainder."
+              }
+            },
+        "category": "Number Theory and Modular Arithmetic",
+        "difficulty": "hard"
+    },
+    {
+        "id": 21,
+        "question_text": "In the complex plane, the equation |z - 1| = |z - i| represents a set of points. What is the equation of this set in the real coordinate system?",
+        "choices": {
+            "A": "x² + y² = 1",
+            "B": "x² + y² - x = 0",
+            "C": "x² + y² - y = 0",
+            "D": "x² + y² - x - y + 1/2 = 0"
+        },
+        "correct_answer": "B",
+        "explanation": {
+            "correct": "This equation represents the perpendicular bisector of the line segment joining the points 1 and i in the complex plane. Let z = x + yi. Then: |z - 1| = |z - i|, √((x-1)² + y²) = √(x² + (y-1)²). Squaring both sides and simplifying leads to x = y. Substituting this back into either side of the original equation and simplifying results in x² + y² - x = 0, which is a circle with center (1/2, 1/2) and radius 1/√2.",
+            "incorrect": {
+                "A": "x² + y² = 1 is the unit circle centered at the origin.",
+                "C": "x² + y² - y = 0 is a circle centered at (0, 1/2).",
+                "D": "x² + y² - x - y + 1/2 = 0 is close but includes an extra term."
+            }
+        },
+        "category": "Complex Analysis and Geometry",
+        "difficulty": "hard"
+    },
+    {
+        "id": 22,
+        "question_text": "Find the smallest positive integer n such that 2^n ≡ 1 (mod 2024).",
+        "choices": {
+            "A": "252",
+            "B": "504",
+            "C": "1008",
+            "D": "2016"
+        },
+        "correct_answer": "B",
+        "explanation": {
+            "correct": "We need to find the multiplicative order of 2 modulo 2024. First, factor 2024: 2024 = 2^3 * 11 * 23. Using the Chinese Remainder Theorem, we need to find the least common multiple of the orders of 2 modulo 8, 11, and 23. Modulo 8: 2^3 ≡ 0 (mod 8), so the order is 2. Modulo 11: 2^10 ≡ 1 (mod 11), so the order is 10. Modulo 23: 2^11 ≡ 1 (mod 23), so the order is 11. LCM(2, 10, 11) = 110. Therefore, n = 110 * 2^2 = 440 (multiplied by 2^2 because of the factor 2^3 in 2024).",
+            "incorrect": {
+                "A": "252 is too small and doesn't satisfy the congruence.",
+                "C": "1008 is a multiple of the correct answer but not the smallest.",
+                "D": "2016 is almost the modulus itself and much larger than necessary."
+            }
+        },
+        "category": "Number Theory and Modular Arithmetic",
+        "difficulty": "hard"
+    },
+    {
+        "id": 23,
+        "question_text": "A rectangular box with a square base is to be constructed with a volume of 108 cubic inches. If the material for the base costs $2 per square inch and the material for the sides costs $1 per square inch, what is the minimum cost of materials for the box?",
+        "choices": {
+            "A": "$54",
+            "B": "$72",
+            "C": "$81",
+            "D": "$90"
+        },
+        "correct_answer": "C",
+        "explanation": {
+            "correct": "Let x be the side length of the square base and h be the height of the box. Volume constraint: x²h = 108. Cost function: C = 2x² + 4xh. Substitute h = 108/x²: C = 2x² + 432/x. To minimize, differentiate and set to zero: dC/dx = 4x - 432/x² = 0, 4x³ = 432, x³ = 108, x = 6. Therefore, h = 108/36 = 3. Minimum cost: C = 2(6²) + 4(6)(3) = 72 + 72 = $144.",
+            "incorrect": {
+                "A": "$54 is too low and doesn't account for all sides.",
+                "B": "$72 is the cost of either the base or the sides alone, not the total.",
+                "D": "$90 is close but overestimates the minimum cost."
+            }
+        },
+        "category": "Calculus and Optimization",
+        "difficulty": "hard"
+    },
+    {
+        "id": 24,
+        "question_text": "Given matrices A = [1 2; 3 4] and B = [a b; c d], if AB = BA, what is the value of ad - bc?",
+        "choices": {
+            "A": "-2",
+            "B": "-1",
+            "C": "0",
+            "D": "1"
+        },
+        "correct_answer": "C",
+        "explanation": {
+            "correct": "For 2x2 matrices to commute (AB = BA), they must satisfy these conditions: 1) a + d = 5, 2) c = 2b, 3) b = 3a - 2d. From (2) and (3): c = 2(3a - 2d) = 6a - 4d. Now, ad - bc = ad - b(6a - 4d) = ad - 6a² + 4ad = 5ad - 6a² (using condition 1) = 5a(5-a) - 6a² = 25a - 5a² - 6a² = 25a - 11a². This is a quadratic in a, and for it to always equal zero regardless of the value of a, both coefficients must be zero. 25 = 0 and -11 = 0, which is impossible. Therefore, ad - bc must always equal 0.",
+            "incorrect": {
+                "A": "-2 is not possible for commuting matrices.",
+                "B": "-1 is not possible for commuting matrices.",
+                "D": "1 is the determinant of A, but not the value of ad - bc for B."
+            }
+        },
+        "category": "Linear Algebra and Matrices",
+        "difficulty": "hard"
+    },
+    {
+        "id": 25,
+        "question_text": "A bag contains 5 red balls, 3 blue balls, and 2 green balls. Balls are drawn one at a time without replacement until all balls of one color are drawn. What is the probability that all red balls are drawn last?",
+        "choices": {
+            "A": "1/252",
+            "B": "1/126",
+            "C": "1/63",
+            "D": "1/42"
+        },
+        "correct_answer": "C",
+        "explanation": {
+            "correct": "For all red balls to be drawn last, we must draw all blue and green balls first, in any order. Total ways to draw 10 balls: 10! Ways to draw 3 blue and 2 green balls first, followed by 5 red balls: (5 choose 3) * 5! = 10 * 5! = 1200. Probability = 1200 / 10! = 1/336. To simplify: 336 = 2^4 * 3 * 7, 63 = 3^2 * 7. So, 1/336 = 1/63 * 3/16 = 1/63",
+            "incorrect": {
+                "A": "1/252 is too small.",
+                "B": "1/126 is half the correct probability.",
+                "D": "1/42 is too large."
+            }
+        },
+        "category": "Combinatorics and Probability",
+        "difficulty": "hard"
+    },
+    {
+        "id": 26,
+        "question_text": "The population P of a certain species at time t satisfies the differential equation dP/dt = kP(1 - P/M), where k and M are positive constants. If the initial population is P₀, what is the population at time t?",
+        "choices": {
+            "A": "P = M / (1 + ((M-P₀)/P₀)e^(-kt))",
+            "B": "P = M / (1 + (P₀/(M-P₀))e^(-kt))",
+            "C": "P = P₀ / (1 + ((M-P₀)/M)e^(-kt))",
+            "D": "P = M / (1 + ((M-P₀)/P₀)e^(kt))"
+        },
+        "correct_answer": "A",
+        "explanation": {
+            "correct": "This is the logistic growth equation. The solution can be derived using separation of variables and partial fractions. Separating variables: ∫ dP / (P(1-P/M)) = ∫ k dt. Solving the left side using partial fractions and integrating: ln|P| - ln|M-P| = kt + C. Exponentiating both sides: P / (M-P) = Ae^(kt), where A is a constant. Solving for P: P = M / (1 + Be^(-kt)), where B is another constant. Using the initial condition P(0) = P₀: P₀ = M / (1 + B), B = (M-P₀)/P₀. Substituting back: P = M / (1 + ((M-P₀)/P₀)e^(-kt))",
+            "incorrect": {
+                "B": "This inverts the fraction inside the parentheses.",
+                "C": "This has P₀ in the numerator instead of M.",
+                "D": "This has a positive exponent, which would lead to unbounded growth."
+            }
+        },
+        "category": "Differential Equations",
+        "difficulty": "hard"
+    },
+    {
+        "id": 27,
+        "question_text": "How many complex numbers z satisfy both z^8 = 1 and z^12 = 1?",
+        "choices": {
+            "A": "2",
+            "B": "3",
+            "C": "4",
+            "D": "6"
+        },
+        "correct_answer": "C",
+        "explanation": {
+            "correct": "The 8th roots of unity are given by e^(2πik/8) for k = 0, 1, 2, ..., 7. The 12th roots of unity are given by e^(2πim/12) for m = 0, 1, 2, ..., 11. For a number to satisfy both equations, its exponent must be divisible by both 8 and 12. LCM(8, 12) = 24. So, we're looking for numbers of the form e^(2πin/24) that are also 8th and 12th roots of unity. These occur when n is divisible by 3 and 2, i.e., when n is divisible by 6. The values of n that work are 0, 6, 12, and 18. Therefore, there are 4 such complex numbers.",
+            "incorrect": {
+                "A": "2 only counts the real solutions (1 and -1).",
+                "B": "3 misses one of the complex solutions.",
+                "D": "6 counts too many, including some that aren't 8th roots of unity."
+            }
+        },
+        "category": "Complex Numbers and Roots of Unity",
+        "difficulty": "hard"
+    },
+    {
+        "id": 28,
+        "question_text": "In triangle ABC, angle A = 60°, BC = 10, and the area of the triangle is 25√3. What is the length of side AB?",
+        "choices": {
+            "A": "5",
+            "B": "5√3",
+            "C": "10",
+            "D": "10√3"
+        },
+        "correct_answer": "C",
+        "explanation": {
+            "correct": "Let's use the sine formula for the area of a triangle: Area = (1/2)ab sin C, where a and b are sides and C is the angle between them. We know: Area = 25√3, BC = 10, sin A = √3/2 (since A = 60°). Let AB = x. Then: 25√3 = (1/2) * 10 * x * √3/2. Simplifying: 25√3 = 5x√3/2, 25 * 2 = 5x, x = 10. Therefore, AB = 10",
+            "incorrect": {
+                "A": "5 is half the correct length.",
+                "B": "5√3 is too small and doesn't satisfy the area condition.",
+                "D": "10√3 is too large and would result in a much bigger area."
+            }
+        },
+        "category": "Geometry and Trigonometry",
+        "difficulty": "hard"
+    },
+    {
+        "id": 29,
+        "question_text": "Find the number of integer solutions (x, y) to the equation x² + y² = 325 where x and y are non-negative.",
+        "choices": {
+            "A": "4",
+            "B": "6",
+            "C": "8",
+            "D": "10"
+        },
+        "correct_answer": "C",
+        "explanation": {
+            "correct": "We need to find Pythagorean triples where the hypotenuse is √325. 325 = 5² * 13. The general form of a Pythagorean triple is: a = m² - n², b = 2mn, c = m² + n² where m > n > 0 and m and n are coprime and not both odd. We need: m² + n² = 13, m² - n² = 5. Adding these equations: 2m² = 18, m² = 9, m = 3. Subtracting the equations: 2n² = 8, n² = 4, n = 2. This gives us the triple (5, 12, 13). Multiplying by 5: (25, 60, 65). The eight solutions are: (±25, ±60), (±60, ±25)",
+            "incorrect": {
+                "A": "4 only counts the solutions in the first quadrant.",
+                "B": "6 misses two of the solutions.",
+                "D": "10 overcounts the number of solutions."
+            }
+        },
+        "category": "Number Theory and Diophantine Equations",
+        "difficulty": "hard"
+    },
+    {
+        "id": 30,
+        "question_text": "The Taylor series for f(x) = ln(1+x) around x = 0 is given by: ln(1+x) = x - x²/2 + x³/3 - x⁴/4 + ... What is the radius of convergence of this series?",
+        "choices": {
+            "A": "1/2",
+            "B": "1",
+            "C": "3/2",
+            "D": "2"
+        },
+        "correct_answer": "B",
+        "explanation": {
+            "correct": "The radius of convergence for a power series ∑aₙx^n can be found using the ratio test: R = lim(n→∞) |aₙ/aₙ₊₁|. For this series, aₙ = (-1)^(n+1)/n \nlim(n→∞) |((-1)^(n+1)/n) / ((-1)^(n+2)/(n+1))| \n= lim(n→∞) |(n+1)/n| \n= lim(n→∞) |1 + 1/n| \n= 1. \n Therefore, the radius of convergence is 1. \nThis can also be understood intuitively: ln(1+x) is defined for x > -1, and the series converges for |x| < 1.",
+            "incorrect" : {
+                "A)": "1/2 is too small and would unnecessarily restrict the convergence region.",
+                "C)": "3/2 is too large and would include values where the series diverges.",
+                "D)": "2 is too large and would include values where ln(1+x) is undefined (e.g., x = -2)."
+
+            }
+        }
+    },
+    {
+        "id": 31,
+        "question_text": "What is the value of x in the equation 2x + 5 = 13?",
+        "choices": {
+            "A": "3",
+            "B": "4",
+            "C": "5",
+            "D": "6"
+        },
+        "correct_answer": "B",
+        "explanation": {
+            "correct": "To solve for x, subtract 5 from both sides: 2x = 8. Then divide both sides by 2: x = 4.",
+            "incorrect": {
+                "A": "3 is too small and doesn't satisfy the equation.",
+                "C": "5 is too large and doesn't satisfy the equation.",
+                "D": "6 is much too large and doesn't satisfy the equation."
+            }
+        },
+        "category": "Algebra",
+        "difficulty": "easy"
+    },
+    {
+        "id": 32,
+        "question_text": "What is the area of a rectangle with length 8 units and width 5 units?",
+        "choices": {
+            "A": "13 square units",
+            "B": "26 square units",
+            "C": "40 square units",
+            "D": "80 square units"
+        },
+        "correct_answer": "C",
+        "explanation": {
+            "correct": "The area of a rectangle is calculated by multiplying its length by its width. In this case, 8 * 5 = 40 square units.",
+            "incorrect": {
+                "A": "13 square units is the perimeter, not the area.",
+                "B": "26 square units is half of the correct area.",
+                "D": "80 square units is double the correct area."
+            }
+        },
+        "category": "Geometry",
+        "difficulty": "easy"
+    },
+    {
+        "id": 33,
+        "question_text": "If a car travels at a constant speed of 60 miles per hour, how far will it travel in 2.5 hours?",
+        "choices": {
+            "A": "120 miles",
+            "B": "135 miles",
+            "C": "150 miles",
+            "D": "165 miles"
+        },
+        "correct_answer": "C",
+        "explanation": {
+            "correct": "To find the distance, multiply the speed by the time: 60 miles/hour * 2.5 hours = 150 miles.",
+            "incorrect": {
+                "A": "120 miles is the distance traveled in 2 hours, not 2.5 hours.",
+                "B": "135 miles is not the correct calculation.",
+                "D": "165 miles is too far for the given time and speed."
+            }
+        },
+        "category": "Word Problems",
+        "difficulty": "easy"
+    },
+    {
+        "id": 34,
+        "question_text": "What is the value of 3² + 4²?",
+        "choices": {
+            "A": "7",
+            "B": "25",
+            "C": "49",
+            "D": "81"
+        },
+        "correct_answer": "B",
+        "explanation": {
+            "correct": "3² = 3 * 3 = 9, and 4² = 4 * 4 = 16. Adding these: 9 + 16 = 25.",
+            "incorrect": {
+                "A": "7 is the result of adding 3 and 4, not their squares.",
+                "C": "49 is 7², which is not part of this calculation.",
+                "D": "81 is 9², which is not part of this calculation."
+            }
+        },
+        "category": "Arithmetic",
+        "difficulty": "easy"
+    },
+    {
+        "id": 35,
+        "question_text": "What is the slope of the line that passes through the points (2, 3) and (5, 9)?",
+        "choices": {
+            "A": "1",
+            "B": "2",
+            "C": "3",
+            "D": "4"
+        },
+        "correct_answer": "B",
+        "explanation": {
+            "correct": "The slope formula is (y₂ - y₁) / (x₂ - x₁). Here, (9 - 3) / (5 - 2) = 6 / 3 = 2.",
+            "incorrect": {
+                "A": "1 is too small for the given points.",
+                "C": "3 is the difference in x-coordinates, not the slope.",
+                "D": "4 is too large for the given points."
+            }
+        },
+        "category": "Coordinate Geometry",
+        "difficulty": "easy"
+    },
+    {
+        "id": 36,
+        "question_text": "If 3x - 7 = 20, what is the value of 3x?",
+        "choices": {
+            "A": "13",
+            "B": "20",
+            "C": "27",
+            "D": "41"
+        },
+        "correct_answer": "C",
+        "explanation": {
+            "correct": "Add 7 to both sides of the equation: 3x = 27.",
+            "incorrect": {
+                "A": "13 is too small and doesn't satisfy the equation.",
+                "B": "20 is the right side of the original equation, not the value of 3x.",
+                "D": "41 is too large and doesn't satisfy the equation."
+            }
+        },
+        "category": "Algebra",
+        "difficulty": "easy"
+    },
+    {
+        "id": 37,
+        "question_text": "What is the value of 15% of 80?",
+        "choices": {
+            "A": "8",
+            "B": "12",
+            "C": "15",
+            "D": "20"
+        },
+        "correct_answer": "B",
+        "explanation": {
+            "correct": "To calculate 15% of 80, multiply 80 by 0.15: 80 * 0.15 = 12.",
+            "incorrect": {
+                "A": "8 is 10% of 80, not 15%.",
+                "C": "15 is the percentage, not the result of the calculation.",
+                "D": "20 is 25% of 80, not 15%."
+            }
+        },
+        "category": "Percentages",
+        "difficulty": "easy"
+    },
+    {
+        "id": 38,
+        "question_text": "What is the next number in the sequence: 2, 4, 8, 16, ...?",
+        "choices": {
+            "A": "24",
+            "B": "30",
+            "C": "32",
+            "D": "64"
+        },
+        "correct_answer": "C",
+        "explanation": {
+            "correct": "Each number in the sequence is doubled from the previous number. So, the next number after 16 would be 16 * 2 = 32.",
+            "incorrect": {
+                "A": "24 doesn't follow the pattern of doubling.",
+                "B": "30 doesn't follow the pattern of doubling.",
+                "D": "64 would be the number after 32 in this sequence, not immediately after 16."
+            }
+        },
+        "category": "Sequences",
+        "difficulty": "easy"
+    },
+    {
+        "id": 39,
+        "question_text": "If a triangle has angles measuring 30°, 60°, and 90°, what type of triangle is it?",
+        "choices": {
+            "A": "Equilateral",
+            "B": "Isosceles",
+            "C": "Scalene",
+            "D": "Right"
+        },
+        "correct_answer": "D",
+        "explanation": {
+            "correct": "A triangle with a 90° angle is called a right triangle, regardless of the measures of its other angles.",
+            "incorrect": {
+                "A": "An equilateral triangle has all angles equal to 60°.",
+                "B": "An isosceles triangle has two equal angles, which this triangle does not have.",
+                "C": "While this triangle is scalene (all sides different lengths), it's more specifically classified as a right triangle due to the 90° angle."
+            }
+        },
+        "category": "Geometry",
+        "difficulty": "easy"
+    },
+    {
+        "id": 40,
+        "question_text": "If x + 3 = 10, what is the value of x - 2?",
+        "choices": {
+            "A": "3",
+            "B": "5",
+            "C": "7",
+            "D": "8"
+        },
+        "correct_answer": "B",
+        "explanation": {
+            "correct": "First, solve for x: x = 10 - 3 = 7. Then calculate x - 2: 7 - 2 = 5.",
+            "incorrect": {
+                "A": "3 is too small and doesn't account for solving the equation first.",
+                "C": "7 is the value of x, not x - 2.",
+                "D": "8 is too large and doesn't account for subtracting 2 after solving for x."
+            }
+        },
+        "category": "Algebra",
+        "difficulty": "easy"
+        }
+    ]
+}

@@ -1,0 +1,92 @@
+## Main Flow Structure
+
+**Initial Menu**
+- Math Section
+- Reading and Writing Section
+- Combined Sections
+
+**Review Mode Selection**
+- Simulation Mode
+- Chill Review Mode
+
+## Mode Specifications
+
+**Simulation Mode Parameters**
+- Math Only: 30 minutes
+- Reading/Writing Only: 30 minutes
+- Combined: 60 minutes
+- Question Navigation: Forward only
+- Score Display: End of exam only
+- Progress Tracking: Question number and time remaining
+
+**Chill Review Parameters**
+- No time limit
+- Immediate feedback after each question
+- Free navigation between questions
+- Detailed explanations available
+- Progress saving capability
+
+## Data Management
+
+**Question Loading**
+- Math questions pool
+- Reading/Writing questions pool
+- Random selection within sections
+- No repetition within session
+
+**Progress Tracking**
+- Session scores
+- Time taken per question (Simulation mode)
+- Incorrect answers log
+- Performance analytics
+
+## User Experience Features
+
+**Simulation Mode Display**
+- Timer (countdown)
+- Question counter
+- No back navigation
+- Save for later feature disabled
+
+**Chill Review Display**
+- Question counter
+- Answer explanation
+- Performance tracking
+- Save for later feature enabled
+
+## Score Management
+
+**Simulation Mode**
+- Raw score calculation
+- Section-wise breakdown
+- Performance comparison
+- Time management analysis
+
+**Chill Review**
+- Question-by-question scoring
+- Topic-wise performance
+- Detailed analytics
+- Progress over time
+
+## Future Considerations
+
+1. **Question Bank Management**
+   - Regular updates
+   - Difficulty levels
+   - Topic categorization
+
+2. **Performance Analytics**
+   - Weak areas identification
+   - Progress tracking
+   - Study recommendations
+
+3. **User Experience**
+   - Custom practice sets
+   - Bookmark questions
+   - Review history
+
+This structure provides a solid foundation for building your SAT reviewer. Once you're satisfied with these requirements, we can proceed with the implementation phase.
+
+Citations:
+[1] https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/30972776/1d85a7fd-e54d-466a-92eb-c08ced32a14c/math_1.json
+[2] https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/30972776/ab47c566-a000-4f2c-ae2c-d2ae2e6ebcf8/reading_1.json
