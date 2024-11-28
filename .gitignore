@@ -1,0 +1,17 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+env/
+.env
+
+# IDE settings
+.vscode/
+.idea/
+
+# Local development settings
+*.log
+.DS_Store
