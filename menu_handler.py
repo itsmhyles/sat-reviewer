@@ -48,13 +48,14 @@ class DisplayFormatter:
         """
         formatted = "\nExplanation:"
         formatted += f"\n{'-'*50}\n"
-        formatted += f"Correct Answer Explanation:\n{explanation_dict['correct']}\n"
-        
+        formatted += f"Correct Answer Explanation:\n{explanation_dict.get('correct', 'No explanation provided.')}\n"
+
         if 'incorrect' in explanation_dict:
             formatted += f"\nWhy other choices are incorrect:\n{'-'*30}\n"
             for choice, reason in explanation_dict['incorrect'].items():
                 formatted += f"\nChoice {choice}:\n{reason}\n"
         return formatted
+
     
     @staticmethod
     def format_result(is_correct):
@@ -208,70 +209,67 @@ class MenuHandler:
             else:
                 self._run_chill_session(session)
         
+
     def _run_chill_session(self, session):
         """
-        Runs a chill review session, allowing users to navigate through questions at their own pace.
+        Runs a chill review session, presenting questions one at a time
+        and displaying results immediately after answering.
 
         Args:
             session (ChillSession): The chill review session to run.
         """
         print(self.formatter.format_header(f"Starting {session.session_type} chill review"))
-        print(f"Total questions: {session.total_questions}")
+        print(f"Total questions: {session.total_questions}\n")
         
-        while True:
+        while session.current_question_index < session.total_questions:
             question = session.get_current_question()
-            if not question:
-                break
-            
             print(self.formatter.format_question(
                 session.current_question_index + 1,
                 session.total_questions,
                 question.question_text
             ))
-            
-            # Display navigation options
-            print("\nNavigation:")
-            if session.current_question_index > 0:
-                print("B - Go back to previous question")
-            if session.current_question_index < session.total_questions - 1:
-                print("N - Go to next question")
-            print("A/B/C/D - Submit answer")
-            print("Q - Quit session")
-            
-            # Display choices
             for letter, choice in question.choices.items():
                 print(f"{letter}) {choice}")
-            
-            # Show previous answer if question was answered before
-            if question.id in session.answers:
-                previous_answer = session.answers[question.id]['user_answer']
-                print(f"\nYour previous answer: {previous_answer}")
-            
-            answer = input("\nYour choice: ").upper()
-            
-            if answer == 'B' and session.current_question_index > 0:
-                session.go_back()
-                continue
-            elif answer == 'N' and session.current_question_index < session.total_questions - 1:
-                session.go_forward()
-                continue
-            elif answer == 'Q':
-                break
-            elif answer in ['A', 'B', 'C', 'D']:
-                if question.id in session.answers:
-                    is_correct = session.update_answer(answer)
+
+            # Prompt for an answer
+            while True:
+                answer = input("\nEnter your answer (A/B/C/D) or Q to quit: ").strip().upper()
+                if answer in ['A', 'B', 'C', 'D']:
+                    is_correct = session.submit_answer(answer)  # Submit the answer and process correctness
+                    print(self.formatter.format_result(is_correct))
+                    
+                    # Display explanation if available
+                    explanation = session.show_explanation()
+                    if explanation:
+                        print(self.formatter.format_explanation(explanation))
+                    
+                    input("\nPress Enter to continue...")
+                    break
+                elif answer == 'Q':
+                    print("\nExiting session...")
+                    return
                 else:
-                    is_correct = session.submit_answer(answer)
-                
-                print(self.formatter.format_result(is_correct))
-                print(self.formatter.format_explanation(session.show_explanation()))
-                
-                input("\nPress Enter to continue...")
-                session.answered_questions.add(question.id)
-                
-                if session.current_question_index < session.total_questions:
-                    session.go_forward()
-            else:
-                print("Invalid input. Please try again.")
-        
+                    print("\nInvalid input. Please enter A, B, C, D, or Q.")
+
+        # End of session
         print(self.formatter.format_session_end(session.score, session.total_questions))
+
+
+
+
+    def _submit_or_update_answer(self, session, question, answer):
+        """
+        Submits or updates the user's answer for a question.
+
+        Args:
+            session (ChillSession): The current session object.
+            question (Question): The current question object.
+            answer (str): The user's selected answer.
+
+        Returns:
+            bool: True if the submitted answer is correct, False otherwise.
+        """
+        assert answer in ['A', 'B', 'C', 'D'], "Invalid answer choice"
+        if question.id in session.answers:
+            return session.update_answer(answer)
+        return session.submit_answer(answer)

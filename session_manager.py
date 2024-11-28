@@ -37,7 +37,9 @@ class BaseSession:
             return self.questions[self.current_question_index]
         return None
     
+
     def submit_answer(self, answer):
+        
         """
         Submits an answer for the current question and updates the session state.
 
@@ -47,9 +49,10 @@ class BaseSession:
         Returns:
             bool: True if the answer is correct, False otherwise.
         """
+
         if self.current_question_index >= self.total_questions:
             return False
-        
+
         question = self.questions[self.current_question_index]
         is_correct = answer.upper() == question.correct_answer
         self.answers[question.id] = {
@@ -57,12 +60,13 @@ class BaseSession:
             'correct': is_correct,
             'question_text': question.question_text
         }
-        
+
         if is_correct:
             self.score += 1
-        
-        self.current_question_index += 1
+
+        self.current_question_index += 1  # Increment to move to the next question
         return is_correct
+
 
 class SimulationSession(BaseSession):
     """
@@ -190,9 +194,10 @@ class ChillSession(BaseSession):
         Returns:
             str: The explanation for the previous question, or None if at the first question.
         """
-        if self.current_question_index > 0:
-            previous_question = self.questions[self.current_question_index - 1]
-            return previous_question.explanation
+        current_question = self.get_current_question()
+        if current_question:
+            return current_question.explanation
+        return None
 
     def _format_explanation(self, explanation):
         """
