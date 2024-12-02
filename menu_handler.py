@@ -218,9 +218,10 @@ class MenuHandler:
         Args:
             session (ChillSession): The chill review session to run.
         """
+        
         print(self.formatter.format_header(f"Starting {session.session_type} chill review"))
         print(f"Total questions: {session.total_questions}\n")
-        
+
         while session.current_question_index < session.total_questions:
             question = session.get_current_question()
             print(self.formatter.format_question(
@@ -228,21 +229,21 @@ class MenuHandler:
                 session.total_questions,
                 question.question_text
             ))
+
             for letter, choice in question.choices.items():
                 print(f"{letter}) {choice}")
 
-            # Prompt for an answer
             while True:
                 answer = input("\nEnter your answer (A/B/C/D) or Q to quit: ").strip().upper()
                 if answer in ['A', 'B', 'C', 'D']:
-                    is_correct = session.submit_answer(answer)  # Submit the answer and process correctness
+                    # Get explanation before submitting answer
+                    explanation = question.explanation
+                    is_correct = session.submit_answer(answer)
                     print(self.formatter.format_result(is_correct))
                     
-                    # Display explanation if available
-                    explanation = session.show_explanation()
+                    # Display the explanation we got earlier
                     if explanation:
                         print(self.formatter.format_explanation(explanation))
-                    
                     input("\nPress Enter to continue...")
                     break
                 elif answer == 'Q':
@@ -251,7 +252,6 @@ class MenuHandler:
                 else:
                     print("\nInvalid input. Please enter A, B, C, D, or Q.")
 
-        # End of session
         print(self.formatter.format_session_end(session.score, session.total_questions))
 
 

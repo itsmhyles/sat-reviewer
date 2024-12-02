@@ -144,12 +144,13 @@ class ChillSession(BaseSession):
     Attributes:
         review_mode (bool): Indicates whether the session is in review mode.
     """
-
     def __init__(self, questions, session_type):
         super().__init__(questions, session_type)
         self.review_mode = True
-        self.answered_questions = set()  # Track which questions have been answered
-    
+        self.answered_questions = set()
+        self.current_explanation = None  # Track current explanation
+
+
     def go_back(self):
         """Go back to the previous question if possible"""
         if self.current_question_index > 0:
@@ -189,13 +190,13 @@ class ChillSession(BaseSession):
     
     def show_explanation(self):
         """
-        Retrieves the explanation for the previous question.
-
+        Retrieves the explanation for the current question.
         Returns:
-            str: The explanation for the previous question, or None if at the first question.
+            dict: The explanation for the current question
         """
-        current_question = self.get_current_question()
-        if current_question:
+        if self.current_question_index < self.total_questions:
+            # Get the current question's explanation, not the next one
+            current_question = self.questions[self.current_question_index]
             return current_question.explanation
         return None
 
